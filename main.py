@@ -22,7 +22,6 @@ promptType2 = "code a " + adjcetive1 + " website that has verbose styling with c
 promptType3 = "write a website, be verbose with the styling." + " Also make it" + adjcetive1 + " with "+ adjcetive2 + " and verbose javascript, and a " + adjcetive3 + " image."
 
 # client decides prompt
-
 print("Choose prompt:")
 print("0. see prompts")
 print("1. prompt #1")
@@ -30,7 +29,7 @@ print("2. prompt #2")
 print("3. prompt #3")
 print("4. Your own prompt")
 
-
+# choice loop
 choices = True
 while choices:
     cliChoice = int(input())
@@ -73,10 +72,9 @@ response = openai.Completion.create(
 
 # Print the response
 respText = response["choices"][0]["text"]
-
 print(" Answer:" + '\n' + respText)
 
-# Prints the website into a file/overwrites it
+# Writes the response into a file/overwrites it
 fp = open('index.html', 'w')
 fp.write(respText)
 fp.close()
